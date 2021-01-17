@@ -1759,9 +1759,291 @@ summary {
 
 
 <!-- rnb-text-begin -->
+<div id="problem-definition" class="section level1">
+<h1>Problem Definition</h1>
+</div>
+<div id="data-sourcing" class="section level1">
+<h1>Data Sourcing</h1>
 <!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZGF0YSA8LSByZWFkLmNzdignaHR0cDovL2JpdC5seS9FY29tbWVyY2VDdXN0b21lcnNEYXRhc2V0JylcbmBgYCJ9 -->
+<pre class="r"><code>data &lt;- read.csv(&#39;http://bit.ly/EcommerceCustomersDataset&#39;)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+</div>
+<div id="check-the-data" class="section level1">
+<h1>Check the Data</h1>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuaGVhZChkYXRhKVxuYGBgIn0= -->
+<pre class="r"><code>head(data)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbImRhdGEuZnJhbWUiXSwibnJvdyI6NiwibmNvbCI6MTh9LCJyZGYiOiJINHNJQUFBQUFBQUFCc1ZVdjIvVFFCUzJuVGhSVWlVS0tZSUpSaGJVU0xUcXhKQlFRaEVESXJoTjZZTEsxWDVKVDNYTzBmbGNHbGlRRURzRFN4RVNjeGNHSnBnUVl3YzJaaVRtSXVBdktOekY5NHBqSElRcUlVNTZldmUrZDk4OXZ4OW5wNzIrVUY0dkc0YVJNL0pTY3JiY0dvV3JuVXZ6aS9PR2tiZWtaVXBQU2VsZGVXcFdidXBTS3VxWU1YMVZzL3p2dnYrQkVhOS9mYThweFVwb2xmcHMrdDVXWi9MZWx0M3RkdThkM0cwOWZoSGI3dkxYYjhiSHk4aHJIdXlwOVJ6NWFEZjN0WDcyNFBQMVY2Y2ZOcDllUExmLzRWTXB6V3UrMVJydDk0ZFB6cis1L2VXWXYzZmg1ZUhyZkdWYS9uK3hUc3FyalhueEFPU1dZZk9rMjk4N2tGY3VMVmFHSDNXV1gwa3BjYzdNNE9kMERJeVR6T1NVQXlMaWpMTCt4aG9OcVFqNC8zWEVjNWpWSDFQcmFYNjlKaDZxemNnQVFwMXlYWVBWSzk2QU1ob0tUZ1RkQVkyZW5VUTMycEhhQkV5N0t6ZFlMK0NETVVSOERaNlpBTk9VYW9jSFh1UUtCM3dpd01NNGsyaWFOTE1VUk13RlIvcENEWld1N1ZLUkJNb2Qwb2MxNGtlL2tKVWh1SlQ0YlRMQ3pHOEdUR3hwbzNackNDb0s2NitNUWdFRHBCV1hlSEEvQkd4SHdZRis0a3RXT2VuMXFMczZHbUtOWm5TWEVsRHhEc0EyTU15dTZNQU9zQWhTZlNqSk9BM3NoUnBQNjFIY3JVSzZZYTVQUW13WWdtV1BDTkxvY2NtWDFsR0tVZ3lHcW42U1pLbmZsNTBpbXp3RjFDS212c1NiYzdjaXRqMjN1S0JuS3ZsNlREMWp1Sy9ITWEwZitpNGJLd2FzVHhuV3d2YkpKdUJzVkdYSzQ0d2JRMDZad0ZSVXdSc2lFTWN6VkhZREg1Rnhjc2JSVHhwaG5hcUxCZ0FBIn0= -->
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["Administrative"],"name":[1],"type":["int"],"align":["right"]},{"label":["Administrative_Duration"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["Informational"],"name":[3],"type":["int"],"align":["right"]},{"label":["Informational_Duration"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["ProductRelated"],"name":[5],"type":["int"],"align":["right"]},{"label":["ProductRelated_Duration"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["BounceRates"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["ExitRates"],"name":[8],"type":["dbl"],"align":["right"]},{"label":["PageValues"],"name":[9],"type":["dbl"],"align":["right"]},{"label":["SpecialDay"],"name":[10],"type":["dbl"],"align":["right"]},{"label":["Month"],"name":[11],"type":["chr"],"align":["left"]},{"label":["OperatingSystems"],"name":[12],"type":["int"],"align":["right"]},{"label":["Browser"],"name":[13],"type":["int"],"align":["right"]},{"label":["Region"],"name":[14],"type":["int"],"align":["right"]},{"label":["TrafficType"],"name":[15],"type":["int"],"align":["right"]},{"label":["VisitorType"],"name":[16],"type":["chr"],"align":["left"]},{"label":["Weekend"],"name":[17],"type":["lgl"],"align":["right"]},{"label":["Revenue"],"name":[18],"type":["lgl"],"align":["right"]}],"data":[{"1":"0","2":"0","3":"0","4":"0","5":"1","6":"0.000000","7":"0.20000000","8":"0.2000000","9":"0","10":"0","11":"Feb","12":"1","13":"1","14":"1","15":"1","16":"Returning_Visitor","17":"FALSE","18":"FALSE","_rn_":"1"},{"1":"0","2":"0","3":"0","4":"0","5":"2","6":"64.000000","7":"0.00000000","8":"0.1000000","9":"0","10":"0","11":"Feb","12":"2","13":"2","14":"1","15":"2","16":"Returning_Visitor","17":"FALSE","18":"FALSE","_rn_":"2"},{"1":"0","2":"-1","3":"0","4":"-1","5":"1","6":"-1.000000","7":"0.20000000","8":"0.2000000","9":"0","10":"0","11":"Feb","12":"4","13":"1","14":"9","15":"3","16":"Returning_Visitor","17":"FALSE","18":"FALSE","_rn_":"3"},{"1":"0","2":"0","3":"0","4":"0","5":"2","6":"2.666667","7":"0.05000000","8":"0.1400000","9":"0","10":"0","11":"Feb","12":"3","13":"2","14":"2","15":"4","16":"Returning_Visitor","17":"FALSE","18":"FALSE","_rn_":"4"},{"1":"0","2":"0","3":"0","4":"0","5":"10","6":"627.500000","7":"0.02000000","8":"0.0500000","9":"0","10":"0","11":"Feb","12":"3","13":"3","14":"1","15":"4","16":"Returning_Visitor","17":"TRUE","18":"FALSE","_rn_":"5"},{"1":"0","2":"0","3":"0","4":"0","5":"19","6":"154.216667","7":"0.01578947","8":"0.0245614","9":"0","10":"0","11":"Feb","12":"2","13":"2","14":"1","15":"3","16":"Returning_Visitor","17":"FALSE","18":"FALSE","_rn_":"6"}],"options":{"columns":{"min":{},"max":[10],"total":[18]},"rows":{"min":[10],"max":[10],"total":[6]},"pages":{}}}
+  </script>
+</div>
+<!-- rnb-frame-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxudGFpbChkYXRhKVxuYGBgIn0= -->
+<pre class="r"><code>tail(data)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbImRhdGEuZnJhbWUiXSwibnJvdyI6NiwibmNvbCI6MTh9LCJyZGYiOiJINHNJQUFBQUFBQUFCcjFVeldzVFFSU2ZmRGVKU1pNVTdNV0RJR29zTkdwcThPYW1OUW9LMXJEcDEwWEtaSGV5WGJLWlhYWm4wd1lKL1E4OENEMkpJSGdSUWNHREhnb1I5ZVpOcEFkUGV2UFBxTTVtWjVMSmtvSjZjT0RIZSsvMzlyMlo5NUhJdGEybDFGWUtBQkFCVVlwSWpLb2dmck4rdFZ3cEF4QU5VeXRFUFVsUDd0R3Y1cWhTb01oNG53SC9STUQ0UkpuTUNuNVFiWjRGMDA1Vi9oQ2tlTjdRMUlCQTNyODRQRytPb2tJUlkvWXM4TjgvekZ2ZHQveDNQZm14OFBKajhtNjFmOGEzdFJsZnVzOThXYWxPZlkvVVh6NmFzMTRNUnZiYjlmWEd6NlBOaytxUW50L3V2VmJQTmFXbmgwdHEvOHNENmVDYjlyNzgvWlgwN3ZKbnRUMWZrZzRlZmIwK0tKNlMzdVR6aGYzSHM4SDdxc1dIbjVUQmpjTS9xUDlmKzVZYnh2a0xFRmsxdTF5dElXVUtlN0k2bm9DM1V0NldSQmpDVElwK0xrV0lteUVpd21UUVA4TzROSXNYSzhuTGlMZzIxckcydmFFN09qSHQvK2hJcjZMZEVRVkFTcGlNV0JlM1JmK1VNL0VUaldIWVFRNHJ0c0RJN0xMYTBiSHVFQnNTdllzWU96L0pidGRjVHpFeGMyZnU0SlpwZDRZVU5CaDVlb0lNaG1UcnRxbTZDcEdSQVFsUytUMlRiREFvdldLNldFRXk5VG1NU3Q3YTA0bElwT3BRUXh2UWNNZE13MEtLRG8wYTdQSEs3NW1ZN0RBamQ5OUMzaTFZYS9RY2dqbzhMTEZpbTdzTzRvT0l5MGdUWHJKbXcxWkxWOVo2RnU5Um1rMUpvQktiQ0xVUjV0VWxaTlJGMkVXQk9TVHBQU1UrQzdhWVY4NVRYS0M0U0ZHa3VFU3hFQnlnWWtDSEQ1Q1RLUlVTV0dyWk5CKzFqZ01oQ2RQeStrbUR3dDZmY3l3UUhMSURSTTdGM3N2VVJXWEh4ZTNGeWpXMlkzenZNa3pHQmIzZzN4bit4WExGZUFjUjFuVE1leE16WUJQeFhjblNGZ3c3VUxKc0hSTmVpamVBRWpISmFLZFNpbWx3WmxnY09QNE5ycUVpNzVVR0FBQT0ifQ== -->
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["Administrative"],"name":[1],"type":["int"],"align":["right"]},{"label":["Administrative_Duration"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["Informational"],"name":[3],"type":["int"],"align":["right"]},{"label":["Informational_Duration"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["ProductRelated"],"name":[5],"type":["int"],"align":["right"]},{"label":["ProductRelated_Duration"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["BounceRates"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["ExitRates"],"name":[8],"type":["dbl"],"align":["right"]},{"label":["PageValues"],"name":[9],"type":["dbl"],"align":["right"]},{"label":["SpecialDay"],"name":[10],"type":["dbl"],"align":["right"]},{"label":["Month"],"name":[11],"type":["chr"],"align":["left"]},{"label":["OperatingSystems"],"name":[12],"type":["int"],"align":["right"]},{"label":["Browser"],"name":[13],"type":["int"],"align":["right"]},{"label":["Region"],"name":[14],"type":["int"],"align":["right"]},{"label":["TrafficType"],"name":[15],"type":["int"],"align":["right"]},{"label":["VisitorType"],"name":[16],"type":["chr"],"align":["left"]},{"label":["Weekend"],"name":[17],"type":["lgl"],"align":["right"]},{"label":["Revenue"],"name":[18],"type":["lgl"],"align":["right"]}],"data":[{"1":"0","2":"0","3":"1","4":"0","5":"16","6":"503.000","7":"0.000000000","8":"0.03764706","9":"0.00000","10":"0","11":"Nov","12":"2","13":"2","14":"1","15":"1","16":"Returning_Visitor","17":"FALSE","18":"FALSE","_rn_":"12325"},{"1":"3","2":"145","3":"0","4":"0","5":"53","6":"1783.792","7":"0.007142857","8":"0.02903061","9":"12.24172","10":"0","11":"Dec","12":"4","13":"6","14":"1","15":"1","16":"Returning_Visitor","17":"TRUE","18":"FALSE","_rn_":"12326"},{"1":"0","2":"0","3":"0","4":"0","5":"5","6":"465.750","7":"0.000000000","8":"0.02133333","9":"0.00000","10":"0","11":"Nov","12":"3","13":"2","14":"1","15":"8","16":"Returning_Visitor","17":"TRUE","18":"FALSE","_rn_":"12327"},{"1":"0","2":"0","3":"0","4":"0","5":"6","6":"184.250","7":"0.083333333","8":"0.08666667","9":"0.00000","10":"0","11":"Nov","12":"3","13":"2","14":"1","15":"13","16":"Returning_Visitor","17":"TRUE","18":"FALSE","_rn_":"12328"},{"1":"4","2":"75","3":"0","4":"0","5":"15","6":"346.000","7":"0.000000000","8":"0.02105263","9":"0.00000","10":"0","11":"Nov","12":"2","13":"2","14":"3","15":"11","16":"Returning_Visitor","17":"FALSE","18":"FALSE","_rn_":"12329"},{"1":"0","2":"0","3":"0","4":"0","5":"3","6":"21.250","7":"0.000000000","8":"0.06666667","9":"0.00000","10":"0","11":"Nov","12":"3","13":"2","14":"1","15":"2","16":"New_Visitor","17":"TRUE","18":"FALSE","_rn_":"12330"}],"options":{"columns":{"min":{},"max":[10],"total":[18]},"rows":{"min":[10],"max":[10],"total":[6]},"pages":{}}}
+  </script>
+</div>
+<!-- rnb-frame-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuY29sbmFtZXMoZGF0YSlcbmBgYCJ9 -->
+<pre class="r"><code>colnames(data)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiIFsxXSBcIkFkbWluaXN0cmF0aXZlXCIgICAgICAgICAgXCJBZG1pbmlzdHJhdGl2ZV9EdXJhdGlvblwiIFwiSW5mb3JtYXRpb25hbFwiICAgICAgICAgIFxuIFs0XSBcIkluZm9ybWF0aW9uYWxfRHVyYXRpb25cIiAgXCJQcm9kdWN0UmVsYXRlZFwiICAgICAgICAgIFwiUHJvZHVjdFJlbGF0ZWRfRHVyYXRpb25cIlxuIFs3XSBcIkJvdW5jZVJhdGVzXCIgICAgICAgICAgICAgXCJFeGl0UmF0ZXNcIiAgICAgICAgICAgICAgIFwiUGFnZVZhbHVlc1wiICAgICAgICAgICAgIFxuWzEwXSBcIlNwZWNpYWxEYXlcIiAgICAgICAgICAgICAgXCJNb250aFwiICAgICAgICAgICAgICAgICAgIFwiT3BlcmF0aW5nU3lzdGVtc1wiICAgICAgIFxuWzEzXSBcIkJyb3dzZXJcIiAgICAgICAgICAgICAgICAgXCJSZWdpb25cIiAgICAgICAgICAgICAgICAgIFwiVHJhZmZpY1R5cGVcIiAgICAgICAgICAgIFxuWzE2XSBcIlZpc2l0b3JUeXBlXCIgICAgICAgICAgICAgXCJXZWVrZW5kXCIgICAgICAgICAgICAgICAgIFwiUmV2ZW51ZVwiICAgICAgICAgICAgICAgIFxuIn0= -->
+<pre><code> [1] &quot;Administrative&quot;          &quot;Administrative_Duration&quot; &quot;Informational&quot;          
+ [4] &quot;Informational_Duration&quot;  &quot;ProductRelated&quot;          &quot;ProductRelated_Duration&quot;
+ [7] &quot;BounceRates&quot;             &quot;ExitRates&quot;               &quot;PageValues&quot;             
+[10] &quot;SpecialDay&quot;              &quot;Month&quot;                   &quot;OperatingSystems&quot;       
+[13] &quot;Browser&quot;                 &quot;Region&quot;                  &quot;TrafficType&quot;            
+[16] &quot;VisitorType&quot;             &quot;Weekend&quot;                 &quot;Revenue&quot;                </code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubmNvbChkYXRhKVxuYGBgIn0= -->
+<pre class="r"><code>ncol(data)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDE4XG4ifQ== -->
+<pre><code>[1] 18</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubnJvdyhkYXRhKVxuYGBgIn0= -->
+<pre class="r"><code>nrow(data)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDEyMzMwXG4ifQ== -->
+<pre><code>[1] 12330</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc3RyKGRhdGEpXG5gYGAifQ== -->
+<pre class="r"><code>str(data)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiJ2RhdGEuZnJhbWUnOlx0MTIzMzAgb2JzLiBvZiAgMTggdmFyaWFibGVzOlxuICQgQWRtaW5pc3RyYXRpdmUgICAgICAgICA6IGludCAgMCAwIDAgMCAwIDAgMCAxIDAgMCAuLi5cbiAkIEFkbWluaXN0cmF0aXZlX0R1cmF0aW9uOiBudW0gIDAgMCAtMSAwIDAgMCAtMSAtMSAwIDAgLi4uXG4gJCBJbmZvcm1hdGlvbmFsICAgICAgICAgIDogaW50ICAwIDAgMCAwIDAgMCAwIDAgMCAwIC4uLlxuICQgSW5mb3JtYXRpb25hbF9EdXJhdGlvbiA6IG51bSAgMCAwIC0xIDAgMCAwIC0xIC0xIDAgMCAuLi5cbiAkIFByb2R1Y3RSZWxhdGVkICAgICAgICAgOiBpbnQgIDEgMiAxIDIgMTAgMTkgMSAxIDIgMyAuLi5cbiAkIFByb2R1Y3RSZWxhdGVkX0R1cmF0aW9uOiBudW0gIDAgNjQgLTEgMi42NyA2MjcuNSAuLi5cbiAkIEJvdW5jZVJhdGVzICAgICAgICAgICAgOiBudW0gIDAuMiAwIDAuMiAwLjA1IDAuMDIgLi4uXG4gJCBFeGl0UmF0ZXMgICAgICAgICAgICAgIDogbnVtICAwLjIgMC4xIDAuMiAwLjE0IDAuMDUgLi4uXG4gJCBQYWdlVmFsdWVzICAgICAgICAgICAgIDogbnVtICAwIDAgMCAwIDAgMCAwIDAgMCAwIC4uLlxuICQgU3BlY2lhbERheSAgICAgICAgICAgICA6IG51bSAgMCAwIDAgMCAwIDAgMC40IDAgMC44IDAuNCAuLi5cbiAkIE1vbnRoICAgICAgICAgICAgICAgICAgOiBjaHIgIFwiRmViXCIgXCJGZWJcIiBcIkZlYlwiIFwiRmViXCIgLi4uXG4gJCBPcGVyYXRpbmdTeXN0ZW1zICAgICAgIDogaW50ICAxIDIgNCAzIDMgMiAyIDEgMiAyIC4uLlxuICQgQnJvd3NlciAgICAgICAgICAgICAgICA6IGludCAgMSAyIDEgMiAzIDIgNCAyIDIgNCAuLi5cbiAkIFJlZ2lvbiAgICAgICAgICAgICAgICAgOiBpbnQgIDEgMSA5IDIgMSAxIDMgMSAyIDEgLi4uXG4gJCBUcmFmZmljVHlwZSAgICAgICAgICAgIDogaW50ICAxIDIgMyA0IDQgMyAzIDUgMyAyIC4uLlxuICQgVmlzaXRvclR5cGUgICAgICAgICAgICA6IGNociAgXCJSZXR1cm5pbmdfVmlzaXRvclwiIFwiUmV0dXJuaW5nX1Zpc2l0b3JcIiBcIlJldHVybmluZ19WaXNpdG9yXCIgXCJSZXR1cm5pbmdfVmlzaXRvclwiIC4uLlxuICQgV2Vla2VuZCAgICAgICAgICAgICAgICA6IGxvZ2kgIEZBTFNFIEZBTFNFIEZBTFNFIEZBTFNFIFRSVUUgRkFMU0UgLi4uXG4gJCBSZXZlbnVlICAgICAgICAgICAgICAgIDogbG9naSAgRkFMU0UgRkFMU0UgRkFMU0UgRkFMU0UgRkFMU0UgRkFMU0UgLi4uXG4ifQ== -->
+<pre><code>&#39;data.frame&#39;:   12330 obs. of  18 variables:
+ $ Administrative         : int  0 0 0 0 0 0 0 1 0 0 ...
+ $ Administrative_Duration: num  0 0 -1 0 0 0 -1 -1 0 0 ...
+ $ Informational          : int  0 0 0 0 0 0 0 0 0 0 ...
+ $ Informational_Duration : num  0 0 -1 0 0 0 -1 -1 0 0 ...
+ $ ProductRelated         : int  1 2 1 2 10 19 1 1 2 3 ...
+ $ ProductRelated_Duration: num  0 64 -1 2.67 627.5 ...
+ $ BounceRates            : num  0.2 0 0.2 0.05 0.02 ...
+ $ ExitRates              : num  0.2 0.1 0.2 0.14 0.05 ...
+ $ PageValues             : num  0 0 0 0 0 0 0 0 0 0 ...
+ $ SpecialDay             : num  0 0 0 0 0 0 0.4 0 0.8 0.4 ...
+ $ Month                  : chr  &quot;Feb&quot; &quot;Feb&quot; &quot;Feb&quot; &quot;Feb&quot; ...
+ $ OperatingSystems       : int  1 2 4 3 3 2 2 1 2 2 ...
+ $ Browser                : int  1 2 1 2 3 2 4 2 2 4 ...
+ $ Region                 : int  1 1 9 2 1 1 3 1 2 1 ...
+ $ TrafficType            : int  1 2 3 4 4 3 3 5 3 2 ...
+ $ VisitorType            : chr  &quot;Returning_Visitor&quot; &quot;Returning_Visitor&quot; &quot;Returning_Visitor&quot; &quot;Returning_Visitor&quot; ...
+ $ Weekend                : logi  FALSE FALSE FALSE FALSE TRUE FALSE ...
+ $ Revenue                : logi  FALSE FALSE FALSE FALSE FALSE FALSE ...</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc3VtbWFyeShkYXRhKVxuYGBgIn0= -->
+<pre class="r"><code>summary(data)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiIEFkbWluaXN0cmF0aXZlICAgQWRtaW5pc3RyYXRpdmVfRHVyYXRpb24gSW5mb3JtYXRpb25hbCAgICBJbmZvcm1hdGlvbmFsX0R1cmF0aW9uXG4gTWluLiAgIDogMC4wMDAgICBNaW4uICAgOiAgLTEuMDAgICAgICAgICBNaW4uICAgOiAwLjAwMCAgIE1pbi4gICA6ICAtMS4wMCAgICAgICBcbiAxc3QgUXUuOiAwLjAwMCAgIDFzdCBRdS46ICAgMC4wMCAgICAgICAgIDFzdCBRdS46IDAuMDAwICAgMXN0IFF1LjogICAwLjAwICAgICAgIFxuIE1lZGlhbiA6IDEuMDAwICAgTWVkaWFuIDogICA4LjAwICAgICAgICAgTWVkaWFuIDogMC4wMDAgICBNZWRpYW4gOiAgIDAuMDAgICAgICAgXG4gTWVhbiAgIDogMi4zMTggICBNZWFuICAgOiAgODAuOTEgICAgICAgICBNZWFuICAgOiAwLjUwNCAgIE1lYW4gICA6ICAzNC41MSAgICAgICBcbiAzcmQgUXUuOiA0LjAwMCAgIDNyZCBRdS46ICA5My41MCAgICAgICAgIDNyZCBRdS46IDAuMDAwICAgM3JkIFF1LjogICAwLjAwICAgICAgIFxuIE1heC4gICA6MjcuMDAwICAgTWF4LiAgIDozMzk4Ljc1ICAgICAgICAgTWF4LiAgIDoyNC4wMDAgICBNYXguICAgOjI1NDkuMzggICAgICAgXG4gTkEncyAgIDoxNCAgICAgICBOQSdzICAgOjE0ICAgICAgICAgICAgICBOQSdzICAgOjE0ICAgICAgIE5BJ3MgICA6MTQgICAgICAgICAgICBcbiBQcm9kdWN0UmVsYXRlZCAgIFByb2R1Y3RSZWxhdGVkX0R1cmF0aW9uICBCb3VuY2VSYXRlcyAgICAgICAgIEV4aXRSYXRlcyAgICAgIFxuIE1pbi4gICA6ICAwLjAwICAgTWluLiAgIDogICAtMS4wICAgICAgICAgTWluLiAgIDowLjAwMDAwMCAgIE1pbi4gICA6MC4wMDAwMCAgXG4gMXN0IFF1LjogIDcuMDAgICAxc3QgUXUuOiAgMTg1LjAgICAgICAgICAxc3QgUXUuOjAuMDAwMDAwICAgMXN0IFF1LjowLjAxNDI5ICBcbiBNZWRpYW4gOiAxOC4wMCAgIE1lZGlhbiA6ICA1OTkuOCAgICAgICAgIE1lZGlhbiA6MC4wMDMxMTkgICBNZWRpYW4gOjAuMDI1MTIgIFxuIE1lYW4gICA6IDMxLjc2ICAgTWVhbiAgIDogMTE5Ni4wICAgICAgICAgTWVhbiAgIDowLjAyMjE1MiAgIE1lYW4gICA6MC4wNDMwMCAgXG4gM3JkIFF1LjogMzguMDAgICAzcmQgUXUuOiAxNDY2LjUgICAgICAgICAzcmQgUXUuOjAuMDE2Njg0ICAgM3JkIFF1LjowLjA1MDAwICBcbiBNYXguICAgOjcwNS4wMCAgIE1heC4gICA6NjM5NzMuNSAgICAgICAgIE1heC4gICA6MC4yMDAwMDAgICBNYXguICAgOjAuMjAwMDAgIFxuIE5BJ3MgICA6MTQgICAgICAgTkEncyAgIDoxNCAgICAgICAgICAgICAgTkEncyAgIDoxNCAgICAgICAgIE5BJ3MgICA6MTQgICAgICAgXG4gICBQYWdlVmFsdWVzICAgICAgICBTcGVjaWFsRGF5ICAgICAgICAgTW9udGggICAgICAgICAgIE9wZXJhdGluZ1N5c3RlbXMgICAgQnJvd3NlciAgICAgIFxuIE1pbi4gICA6ICAwLjAwMCAgIE1pbi4gICA6MC4wMDAwMCAgIExlbmd0aDoxMjMzMCAgICAgICBNaW4uICAgOjEuMDAwICAgIE1pbi4gICA6IDEuMDAwICBcbiAxc3QgUXUuOiAgMC4wMDAgICAxc3QgUXUuOjAuMDAwMDAgICBDbGFzcyA6Y2hhcmFjdGVyICAgMXN0IFF1LjoyLjAwMCAgICAxc3QgUXUuOiAyLjAwMCAgXG4gTWVkaWFuIDogIDAuMDAwICAgTWVkaWFuIDowLjAwMDAwICAgTW9kZSAgOmNoYXJhY3RlciAgIE1lZGlhbiA6Mi4wMDAgICAgTWVkaWFuIDogMi4wMDAgIFxuIE1lYW4gICA6ICA1Ljg4OSAgIE1lYW4gICA6MC4wNjE0MyAgICAgICAgICAgICAgICAgICAgICBNZWFuICAgOjIuMTI0ICAgIE1lYW4gICA6IDIuMzU3ICBcbiAzcmQgUXUuOiAgMC4wMDAgICAzcmQgUXUuOjAuMDAwMDAgICAgICAgICAgICAgICAgICAgICAgM3JkIFF1LjozLjAwMCAgICAzcmQgUXUuOiAyLjAwMCAgXG4gTWF4LiAgIDozNjEuNzY0ICAgTWF4LiAgIDoxLjAwMDAwICAgICAgICAgICAgICAgICAgICAgIE1heC4gICA6OC4wMDAgICAgTWF4LiAgIDoxMy4wMDAgIFxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBcbiAgICAgUmVnaW9uICAgICAgIFRyYWZmaWNUeXBlICAgIFZpc2l0b3JUeXBlICAgICAgICAgV2Vla2VuZCAgICAgICAgIFJldmVudWUgICAgICAgXG4gTWluLiAgIDoxLjAwMCAgIE1pbi4gICA6IDEuMDAgICBMZW5ndGg6MTIzMzAgICAgICAgTW9kZSA6bG9naWNhbCAgIE1vZGUgOmxvZ2ljYWwgIFxuIDFzdCBRdS46MS4wMDAgICAxc3QgUXUuOiAyLjAwICAgQ2xhc3MgOmNoYXJhY3RlciAgIEZBTFNFOjk0NjIgICAgICBGQUxTRToxMDQyMiAgICBcbiBNZWRpYW4gOjMuMDAwICAgTWVkaWFuIDogMi4wMCAgIE1vZGUgIDpjaGFyYWN0ZXIgICBUUlVFIDoyODY4ICAgICAgVFJVRSA6MTkwOCAgICAgXG4gTWVhbiAgIDozLjE0NyAgIE1lYW4gICA6IDQuMDcgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIFxuIDNyZCBRdS46NC4wMDAgICAzcmQgUXUuOiA0LjAwICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBcbiBNYXguICAgOjkuMDAwICAgTWF4LiAgIDoyMC4wMCAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIFxuIn0= -->
+<pre><code> Administrative   Administrative_Duration Informational    Informational_Duration
+ Min.   : 0.000   Min.   :  -1.00         Min.   : 0.000   Min.   :  -1.00       
+ 1st Qu.: 0.000   1st Qu.:   0.00         1st Qu.: 0.000   1st Qu.:   0.00       
+ Median : 1.000   Median :   8.00         Median : 0.000   Median :   0.00       
+ Mean   : 2.318   Mean   :  80.91         Mean   : 0.504   Mean   :  34.51       
+ 3rd Qu.: 4.000   3rd Qu.:  93.50         3rd Qu.: 0.000   3rd Qu.:   0.00       
+ Max.   :27.000   Max.   :3398.75         Max.   :24.000   Max.   :2549.38       
+ NA&#39;s   :14       NA&#39;s   :14              NA&#39;s   :14       NA&#39;s   :14            
+ ProductRelated   ProductRelated_Duration  BounceRates         ExitRates      
+ Min.   :  0.00   Min.   :   -1.0         Min.   :0.000000   Min.   :0.00000  
+ 1st Qu.:  7.00   1st Qu.:  185.0         1st Qu.:0.000000   1st Qu.:0.01429  
+ Median : 18.00   Median :  599.8         Median :0.003119   Median :0.02512  
+ Mean   : 31.76   Mean   : 1196.0         Mean   :0.022152   Mean   :0.04300  
+ 3rd Qu.: 38.00   3rd Qu.: 1466.5         3rd Qu.:0.016684   3rd Qu.:0.05000  
+ Max.   :705.00   Max.   :63973.5         Max.   :0.200000   Max.   :0.20000  
+ NA&#39;s   :14       NA&#39;s   :14              NA&#39;s   :14         NA&#39;s   :14       
+   PageValues        SpecialDay         Month           OperatingSystems    Browser      
+ Min.   :  0.000   Min.   :0.00000   Length:12330       Min.   :1.000    Min.   : 1.000  
+ 1st Qu.:  0.000   1st Qu.:0.00000   Class :character   1st Qu.:2.000    1st Qu.: 2.000  
+ Median :  0.000   Median :0.00000   Mode  :character   Median :2.000    Median : 2.000  
+ Mean   :  5.889   Mean   :0.06143                      Mean   :2.124    Mean   : 2.357  
+ 3rd Qu.:  0.000   3rd Qu.:0.00000                      3rd Qu.:3.000    3rd Qu.: 2.000  
+ Max.   :361.764   Max.   :1.00000                      Max.   :8.000    Max.   :13.000  
+                                                                                         
+     Region       TrafficType    VisitorType         Weekend         Revenue       
+ Min.   :1.000   Min.   : 1.00   Length:12330       Mode :logical   Mode :logical  
+ 1st Qu.:1.000   1st Qu.: 2.00   Class :character   FALSE:9462      FALSE:10422    
+ Median :3.000   Median : 2.00   Mode  :character   TRUE :2868      TRUE :1908     
+ Mean   :3.147   Mean   : 4.07                                                     
+ 3rd Qu.:4.000   3rd Qu.: 4.00                                                     
+ Max.   :9.000   Max.   :20.00                                                     
+                                                                                   </code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+</div>
+<div id="perform-data-cleaning" class="section level1">
+<h1>Perform Data Cleaning</h1>
+<div id="duplicate" class="section level2">
+<h2>Duplicate</h2>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZHVwbGljYXRlZF9yb3dzIDwtIGRhdGFbZHVwbGljYXRlZChkYXRhKSxdXG5ucm93KGR1cGxpY2F0ZWRfcm93cylcbmBgYCJ9 -->
+<pre class="r"><code>duplicated_rows &lt;- data[duplicated(data),]
+nrow(duplicated_rows)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDExOVxuIn0= -->
+<pre><code>[1] 119</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZHVwbGljYXRlZF9yb3dzIDwtIGRhdGFbZHVwbGljYXRlZChkYXRhKSxdXG5ucm93KGR1cGxpY2F0ZWRfcm93cylcbmBgYCJ9 -->
+<pre class="r"><code>duplicated_rows &lt;- data[duplicated(data),]
+nrow(duplicated_rows)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDExOVxuIn0= -->
+<pre><code>[1] 119</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZGF0YSA8LSBkYXRhWyFkdXBsaWNhdGVkKGRhdGEpLCBdXG5kdXBsaWNhdGVkX3Jvd3MgPC0gZGF0YVtkdXBsaWNhdGVkKGRhdGEpLF1cbm5yb3coZHVwbGljYXRlZF9yb3dzKVxuYGBgIn0= -->
+<pre class="r"><code>data &lt;- data[!duplicated(data), ]
+duplicated_rows &lt;- data[duplicated(data),]
+nrow(duplicated_rows)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDBcbiJ9 -->
+<pre><code>[1] 0</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+</div>
+<div id="missing-values" class="section level2">
+<h2>Missing Values</h2>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuY29sU3Vtcyhpcy5uYShkYXRhKSlcbmBgYCJ9 -->
+<pre class="r"><code>colSums(is.na(data))</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiICAgICAgICAgQWRtaW5pc3RyYXRpdmUgQWRtaW5pc3RyYXRpdmVfRHVyYXRpb24gICAgICAgICAgIEluZm9ybWF0aW9uYWwgXG4gICAgICAgICAgICAgICAgICAgICAxMiAgICAgICAgICAgICAgICAgICAgICAxMiAgICAgICAgICAgICAgICAgICAgICAxMiBcbiBJbmZvcm1hdGlvbmFsX0R1cmF0aW9uICAgICAgICAgIFByb2R1Y3RSZWxhdGVkIFByb2R1Y3RSZWxhdGVkX0R1cmF0aW9uIFxuICAgICAgICAgICAgICAgICAgICAgMTIgICAgICAgICAgICAgICAgICAgICAgMTIgICAgICAgICAgICAgICAgICAgICAgMTIgXG4gICAgICAgICAgICBCb3VuY2VSYXRlcyAgICAgICAgICAgICAgIEV4aXRSYXRlcyAgICAgICAgICAgICAgUGFnZVZhbHVlcyBcbiAgICAgICAgICAgICAgICAgICAgIDEyICAgICAgICAgICAgICAgICAgICAgIDEyICAgICAgICAgICAgICAgICAgICAgICAwIFxuICAgICAgICAgICAgIFNwZWNpYWxEYXkgICAgICAgICAgICAgICAgICAgTW9udGggICAgICAgIE9wZXJhdGluZ1N5c3RlbXMgXG4gICAgICAgICAgICAgICAgICAgICAgMCAgICAgICAgICAgICAgICAgICAgICAgMCAgICAgICAgICAgICAgICAgICAgICAgMCBcbiAgICAgICAgICAgICAgICBCcm93c2VyICAgICAgICAgICAgICAgICAgUmVnaW9uICAgICAgICAgICAgIFRyYWZmaWNUeXBlIFxuICAgICAgICAgICAgICAgICAgICAgIDAgICAgICAgICAgICAgICAgICAgICAgIDAgICAgICAgICAgICAgICAgICAgICAgIDAgXG4gICAgICAgICAgICBWaXNpdG9yVHlwZSAgICAgICAgICAgICAgICAgV2Vla2VuZCAgICAgICAgICAgICAgICAgUmV2ZW51ZSBcbiAgICAgICAgICAgICAgICAgICAgICAwICAgICAgICAgICAgICAgICAgICAgICAwICAgICAgICAgICAgICAgICAgICAgICAwIFxuIn0= -->
+<pre><code>         Administrative Administrative_Duration           Informational 
+                     12                      12                      12 
+ Informational_Duration          ProductRelated ProductRelated_Duration 
+                     12                      12                      12 
+            BounceRates               ExitRates              PageValues 
+                     12                      12                       0 
+             SpecialDay                   Month        OperatingSystems 
+                      0                       0                       0 
+                Browser                  Region             TrafficType 
+                      0                       0                       0 
+            VisitorType                 Weekend                 Revenue 
+                      0                       0                       0 </code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>We did encounter any missing value within dataset.</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZGF0YSA8LSBuYS5vbWl0KGRhdGEpXG5jb2xTdW1zKGlzLm5hKGRhdGEpKVxuYGBgIn0= -->
+<pre class="r"><code>data &lt;- na.omit(data)
+colSums(is.na(data))</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiICAgICAgICAgQWRtaW5pc3RyYXRpdmUgQWRtaW5pc3RyYXRpdmVfRHVyYXRpb24gICAgICAgICAgIEluZm9ybWF0aW9uYWwgXG4gICAgICAgICAgICAgICAgICAgICAgMCAgICAgICAgICAgICAgICAgICAgICAgMCAgICAgICAgICAgICAgICAgICAgICAgMCBcbiBJbmZvcm1hdGlvbmFsX0R1cmF0aW9uICAgICAgICAgIFByb2R1Y3RSZWxhdGVkIFByb2R1Y3RSZWxhdGVkX0R1cmF0aW9uIFxuICAgICAgICAgICAgICAgICAgICAgIDAgICAgICAgICAgICAgICAgICAgICAgIDAgICAgICAgICAgICAgICAgICAgICAgIDAgXG4gICAgICAgICAgICBCb3VuY2VSYXRlcyAgICAgICAgICAgICAgIEV4aXRSYXRlcyAgICAgICAgICAgICAgUGFnZVZhbHVlcyBcbiAgICAgICAgICAgICAgICAgICAgICAwICAgICAgICAgICAgICAgICAgICAgICAwICAgICAgICAgICAgICAgICAgICAgICAwIFxuICAgICAgICAgICAgIFNwZWNpYWxEYXkgICAgICAgICAgICAgICAgICAgTW9udGggICAgICAgIE9wZXJhdGluZ1N5c3RlbXMgXG4gICAgICAgICAgICAgICAgICAgICAgMCAgICAgICAgICAgICAgICAgICAgICAgMCAgICAgICAgICAgICAgICAgICAgICAgMCBcbiAgICAgICAgICAgICAgICBCcm93c2VyICAgICAgICAgICAgICAgICAgUmVnaW9uICAgICAgICAgICAgIFRyYWZmaWNUeXBlIFxuICAgICAgICAgICAgICAgICAgICAgIDAgICAgICAgICAgICAgICAgICAgICAgIDAgICAgICAgICAgICAgICAgICAgICAgIDAgXG4gICAgICAgICAgICBWaXNpdG9yVHlwZSAgICAgICAgICAgICAgICAgV2Vla2VuZCAgICAgICAgICAgICAgICAgUmV2ZW51ZSBcbiAgICAgICAgICAgICAgICAgICAgICAwICAgICAgICAgICAgICAgICAgICAgICAwICAgICAgICAgICAgICAgICAgICAgICAwIFxuIn0= -->
+<pre><code>         Administrative Administrative_Duration           Informational 
+                      0                       0                       0 
+ Informational_Duration          ProductRelated ProductRelated_Duration 
+                      0                       0                       0 
+            BounceRates               ExitRates              PageValues 
+                      0                       0                       0 
+             SpecialDay                   Month        OperatingSystems 
+                      0                       0                       0 
+                Browser                  Region             TrafficType 
+                      0                       0                       0 
+            VisitorType                 Weekend                 Revenue 
+                      0                       0                       0 </code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+</div>
+<div id="outliers" class="section level2">
+<h2>Outliers</h2>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuI2JveHBsb3QoLCBtYWluID0gKVxuXG5gYGAifQ== -->
+<pre class="r"><code>#boxplot(, main = )
+</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<div id="this-are-the-are-outliers-in-the-column-area.income" class="section level3">
+<h3>This are the are outliers in the column Area.Income</h3>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuI2JveHBsb3Quc3RhdHMoZGYkQXJlYS5JbmNvbWUpJG91dFxuYGBgIn0= -->
+<pre class="r"><code>#boxplot.stats(df$Area.Income)$out</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+</div>
+</div>
+</div>
+<div id="perform-exploratory-data-analysis" class="section level1">
+<h1>Perform Exploratory Data Analysis</h1>
+<div id="univariate-analysis" class="section level2">
+<h2>Univariate Analysis</h2>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+</div>
+<div id="bivariate-analysis" class="section level2">
+<h2>Bivariate Analysis</h2>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+</div>
+</div>
+<div id="implement-the-solution" class="section level1">
+<h1>Implement the Solution</h1>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+</div>
+<div id="challenge-the-solution" class="section level1">
+<h1>Challenge the Solution</h1>
+</div>
+<div id="follow-up-questions" class="section level1">
+<h1>Follow up Questions</h1>
+<!-- rnb-text-end -->
+</div>
 
-<div id="rmd-source-code">LS0tDQp0aXRsZTogIlIgTm90ZWJvb2siDQpvdXRwdXQ6IGh0bWxfbm90ZWJvb2sNCi0tLQ0KDQoNCg0K</div>
+<div id="rmd-source-code">LS0tDQp0aXRsZTogIlIgTm90ZWJvb2siDQpvdXRwdXQ6IGh0bWxfbm90ZWJvb2sNCi0tLQ0KDQojIFByb2JsZW0gRGVmaW5pdGlvbg0KDQojIERhdGEgU291cmNpbmcNCg0KYGBge3J9DQpkYXRhIDwtIHJlYWQuY3N2KCdodHRwOi8vYml0Lmx5L0Vjb21tZXJjZUN1c3RvbWVyc0RhdGFzZXQnKQ0KYGBgDQojIENoZWNrIHRoZSBEYXRhDQpgYGB7cn0NCmhlYWQoZGF0YSkNCmBgYA0KDQoNCmBgYHtyfQ0KdGFpbChkYXRhKQ0KYGBgDQoNCmBgYHtyfQ0KY29sbmFtZXMoZGF0YSkNCmBgYA0KDQoNCmBgYHtyfQ0KbmNvbChkYXRhKQ0KYGBgDQoNCg0KYGBge3J9DQpucm93KGRhdGEpDQpgYGANCg0KYGBge3J9DQpzdHIoZGF0YSkNCmBgYA0KDQoNCmBgYHtyfQ0Kc3VtbWFyeShkYXRhKQ0KYGBgDQoNCiMgUGVyZm9ybSBEYXRhIENsZWFuaW5nDQojIyBEdXBsaWNhdGUgDQpgYGB7cn0NCmR1cGxpY2F0ZWRfcm93cyA8LSBkYXRhW2R1cGxpY2F0ZWQoZGF0YSksXQ0KbnJvdyhkdXBsaWNhdGVkX3Jvd3MpDQpgYGANCg0KYGBge3J9DQpkdXBsaWNhdGVkX3Jvd3MgPC0gZGF0YVtkdXBsaWNhdGVkKGRhdGEpLF0NCm5yb3coZHVwbGljYXRlZF9yb3dzKQ0KZGF0YSA8LSBkYXRhWyFkdXBsaWNhdGVkKGRhdGEpLCBdDQpkdXBsaWNhdGVkX3Jvd3MgPC0gZGF0YVtkdXBsaWNhdGVkKGRhdGEpLF0NCm5yb3coZHVwbGljYXRlZF9yb3dzKQ0KYGBgDQoNCiMjIE1pc3NpbmcgVmFsdWVzDQpgYGB7cn0NCmNvbFN1bXMoaXMubmEoZGF0YSkpDQpgYGANCldlIGRpZCBlbmNvdW50ZXIgYW55IG1pc3NpbmcgdmFsdWUgd2l0aGluIGRhdGFzZXQuIA0KDQpgYGB7cn0NCmRhdGEgPC0gbmEub21pdChkYXRhKQ0KY29sU3Vtcyhpcy5uYShkYXRhKSkNCmBgYA0KDQojIyBPdXRsaWVycw0KYGBge3J9DQojYm94cGxvdCgsIG1haW4gPSApDQoNCmBgYA0KIyMjIFRoaXMgYXJlIHRoZSBhcmUgb3V0bGllcnMgaW4gdGhlIGNvbHVtbiBBcmVhLkluY29tZQ0KYGBge3J9DQojYm94cGxvdC5zdGF0cyhkZiRBcmVhLkluY29tZSkkb3V0DQpgYGANCg0KDQojIFBlcmZvcm0gRXhwbG9yYXRvcnkgRGF0YSBBbmFseXNpcyAgDQojIyBVbml2YXJpYXRlIEFuYWx5c2lzDQpgYGB7cn0NCg0KYGBgDQoNCiMjIEJpdmFyaWF0ZSBBbmFseXNpcw0KYGBge3J9DQoNCmBgYA0KDQoNCg0KIyBJbXBsZW1lbnQgdGhlIFNvbHV0aW9uDQoNCmBgYHtyfQ0KDQpgYGANCg0KIyBDaGFsbGVuZ2UgdGhlIFNvbHV0aW9uDQoNCg0KIyBGb2xsb3cgdXAgUXVlc3Rpb25zDQoNCg0K</div>
 
 
 

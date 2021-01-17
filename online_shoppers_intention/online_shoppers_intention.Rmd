@@ -3,5 +3,105 @@ title: "R Notebook"
 output: html_notebook
 ---
 
+# Problem Definition
+
+# Data Sourcing
+
+```{r}
+data <- read.csv('http://bit.ly/EcommerceCustomersDataset')
+```
+# Check the Data
+```{r}
+head(data)
+```
+
+
+```{r}
+tail(data)
+```
+
+```{r}
+colnames(data)
+```
+
+
+```{r}
+ncol(data)
+```
+
+
+```{r}
+nrow(data)
+```
+
+```{r}
+str(data)
+```
+
+
+```{r}
+summary(data)
+```
+
+# Perform Data Cleaning
+## Duplicate 
+```{r}
+duplicated_rows <- data[duplicated(data),]
+nrow(duplicated_rows)
+```
+
+```{r}
+duplicated_rows <- data[duplicated(data),]
+nrow(duplicated_rows)
+data <- data[!duplicated(data), ]
+duplicated_rows <- data[duplicated(data),]
+nrow(duplicated_rows)
+```
+
+## Missing Values
+```{r}
+colSums(is.na(data))
+```
+We did encounter any missing value within dataset. 
+
+```{r}
+data <- na.omit(data)
+colSums(is.na(data))
+```
+
+## Outliers
+```{r}
+#boxplot(, main = )
+
+```
+### This are the are outliers in the column Area.Income
+```{r}
+#boxplot.stats(df$Area.Income)$out
+```
+
+
+# Perform Exploratory Data Analysis  
+## Univariate Analysis
+```{r}
+
+```
+
+## Bivariate Analysis
+```{r}
+
+```
+
+
+
+# Implement the Solution
+
+```{r}
+
+```
+
+# Challenge the Solution
+
+
+# Follow up Questions
 
 
