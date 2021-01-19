@@ -1,20 +1,41 @@
 ---
 title: "R Notebook"
-output: html_notebook
+output:
+  html_document:
+    df_print: paged
 ---
 
 # Problem Definition
+
+## Specifying the Question
+Finding the characteristics of customer groups
+
+## Defining the Metric for Success
+Identify which individuals are most likely to click on her ads
+
+## Understanding the context
+A Kenyan entrepreneur has created an online cryptography course and would want to advertise it on her blog. She currently targets audiences originating from various countries.
+
+## Recording the Experimental Design
+1. Load , read and explore the dataset. 
+2. Clean the dataset.
+3. Perform Exploratory Data Analysis.
+    * Univariate Analysis
+    * Bivariate Analysis
+
+## Data Relevance
+This dataset is really usefull it contains details about the users that visit her blog.
 
 # Data Sourcing
 
 ```{r}
 data <- read.csv('http://bit.ly/EcommerceCustomersDataset')
 ```
+
 # Check the Data
 ```{r}
 head(data)
 ```
-
 
 ```{r}
 tail(data)
@@ -24,11 +45,9 @@ tail(data)
 colnames(data)
 ```
 
-
 ```{r}
 ncol(data)
 ```
-
 
 ```{r}
 nrow(data)
@@ -62,7 +81,6 @@ nrow(duplicated_rows)
 ```{r}
 colSums(is.na(data))
 ```
-We did encounter any missing value within dataset. 
 
 ```{r}
 data <- na.omit(data)
@@ -71,33 +89,682 @@ colSums(is.na(data))
 
 ## Outliers
 ```{r}
-#boxplot(, main = )
-
+boxplot(data$Administrative, main = "Administrative")
+boxplot(data$Administrative_Duration, main = "Administrative Duration")
+boxplot(data$Informational, main = "Informational")
+boxplot(data$Informational_Duration, main = "Informational_Duration")
+boxplot(data$ProductRelated, main = "ProductRelated")
+boxplot(data$ProductRelated_Duration, main = "ProductRelated_Duration")
+boxplot(data$BounceRates, main = "BounceRates")
+boxplot(data$ExitRates, main = "ExitRates")
+boxplot(data$ExitRates, main = "PageValues")
 ```
-### This are the are outliers in the column Area.Income
+
 ```{r}
-#boxplot.stats(df$Area.Income)$out
+data2 <- data
+```
+
+```{r}
+# install.packages("CatEncoders")
+library(CatEncoders)
 ```
 
 
-# Perform Exploratory Data Analysis  
+```{r}
+lenc <- LabelEncoder.fit(data2$Month)
+data2$Month <- transform(lenc, data2$Month)
+unique(data2$Month)
+```
+
+```{r}
+lenc <- LabelEncoder.fit(data2$VisitorType)
+data2$VisitorType <- transform(lenc, data2$VisitorType)
+unique(data2$VisitorType)
+```
+
+```{r}
+lenc <- LabelEncoder.fit(data2$VisitorType)
+data2$VisitorType <- transform(lenc, data2$VisitorType)
+unique(data2$VisitorType)
+```
+
+
+```{r}
+lenc <- LabelEncoder.fit(data2$VisitorType)
+data2$VisitorType <- transform(lenc, data2$VisitorType)
+unique(data2$VisitorType)
+```
+
+```{r}
+data3 <- data2
+data2 = subset(data2, select = -c(Revenue) )
+colnames(data2)
+```
+
+# Perform Exploratory Data Analysis
+
 ## Univariate Analysis
-```{r}
 
+### Mean
+
+Administrative 
+```{r}
+data.administrative.mean <- mean(data$Administrative)
+data.administrative.mean
 ```
+
+Administrative_Duration
+```{r}
+data.administrative.duration.mean <- mean(data$Administrative_Duration)
+data.administrative.duration.mean
+```
+
+Informational
+```{r}
+data.informational.mean <- mean(data$Informational)
+data.informational.mean
+```
+
+Informational_Duration  
+```{r}
+data.informational.duration.mean <- mean(data$Informational_Duration)
+data.informational.duration.mean
+```
+
+ProductRelated
+```{r}
+data.product.related.mean <- mean(data$ProductRelated)
+data.product.related.mean
+```
+
+ProductRelated_Duration 
+```{r}
+data.product.related.duration.mean <- mean(data$ProductRelated_Duration)
+data.product.related.duration.mean
+```
+
+BounceRates 
+```{r}
+data.bounce.rates.mean <- mean(data$BounceRates)
+data.bounce.rates.mean
+```
+
+ExitRates
+```{r}
+data.exit.rates.mean <- mean(data$ExitRates)
+data.exit.rates.mean
+```
+
+PageValues
+```{r}
+data.administrative.mean <- mean(data$Administrative)
+data.administrative.mean
+```
+
+### Median
+
+Administrative 
+```{r}
+data.administrative.median <- median(data$Administrative)
+data.administrative.median
+```
+
+Administrative_Duration
+```{r}
+data.administrative.duration.median <- median(data$Administrative_Duration)
+data.administrative.duration.median
+```
+
+Informational
+```{r}
+data.informational.median <- median(data$Informational)
+data.informational.median
+```
+
+Informational_Duration  
+```{r}
+data.informational.duration.median <- median(data$Informational_Duration)
+data.informational.duration.median
+```
+
+ProductRelated
+```{r}
+data.product.related.median <- median(data$ProductRelated)
+data.product.related.median
+```
+
+ProductRelated_Duration 
+```{r}
+data.product.related.duration.median <- median(data$ProductRelated_Duration)
+data.product.related.duration.median
+```
+
+BounceRates 
+```{r}
+data.bounce.rates.median <- median(data$BounceRates)
+data.bounce.rates.median
+```
+
+ExitRates
+```{r}
+data.exit.rates.median <- median(data$ExitRates)
+data.exit.rates.median
+```
+
+PageValues
+```{r}
+data.administrative.median<- median(data$Administrative)
+data.administrative.median
+```
+
+### Mode
+```{r}
+getmode <- function(v) {
+   uniqv <- unique(v)
+   uniqv[which.max(tabulate(match(v, uniqv)))]
+}
+```
+
+Month
+```{r}
+data.month.mode <- getmode(data$Month)
+```
+
+OperatingSystems
+```{r}
+data.operating.system.mode <- getmode(data$OperatingSystems)
+```
+
+Browser
+```{r}
+data.browser.mode <- getmode(data$Browser)
+```
+
+Region
+```{r}
+data.region.mode <- getmode(data$Region)
+```
+
+TrafficType
+```{r}
+data.traffic.type.mode <- getmode(data$TrafficType)
+```
+
+VisitorType
+```{r}
+data.visitor.type.mode <- getmode(data$VisitorType)
+```
+
+Weekend
+```{r}
+data.weekend.mode<- getmode(data$Weekend)
+```
+
+Revenue
+```{r}
+data.revenue.mode <- getmode(data$Revenue)
+```
+
+
+### Measures of Dispersion
+
+#### Minimum value
+
+Administrative 
+```{r}
+data.administrative.min <- min(data$Administrative)
+data.administrative.min
+```
+
+Administrative_Duration
+```{r}
+data.administrative.duration.min <- min(data$Administrative_Duration)
+data.administrative.duration.min
+```
+
+Informational
+```{r}
+data.informational.min <- min(data$Informational)
+data.informational.min
+```
+
+Informational_Duration  
+```{r}
+data.informational.duration.min <- min(data$Informational_Duration)
+data.informational.duration.min
+```
+
+ProductRelated
+```{r}
+data.product.related.min <- min(data$ProductRelated)
+data.product.related.min
+```
+
+ProductRelated_Duration 
+```{r}
+data.product.related.duration.min <- min(data$ProductRelated_Duration)
+data.product.related.duration.min
+```
+
+BounceRates 
+```{r}
+data.bounce.rates.min <- min(data$BounceRates)
+data.bounce.rates.min
+```
+
+ExitRates
+```{r}
+data.exit.rates.min <- min(data$ExitRates)
+data.exit.rates.min
+```
+
+PageValues
+```{r}
+data.administrative.max <- max(data$Administrative)
+data.administrative.max
+```
+
+     
+
+#### Maximum value
+
+Administrative 
+```{r}
+data.administrative.max <- max(data$Administrative)
+data.administrative.max
+```
+
+Administrative_Duration
+```{r}
+data.administrative.duration.max <- max(data$Administrative_Duration)
+data.administrative.duration.max
+```
+
+Informational
+```{r}
+data.informational.max <- max(data$Informational)
+data.informational.max
+```
+
+Informational_Duration  
+```{r}
+data.informational.duration.max <- max(data$Informational_Duration)
+data.informational.duration.max
+```
+
+ProductRelated
+```{r}
+data.product.related.max <- max(data$ProductRelated)
+data.product.related.max
+```
+
+ProductRelated_Duration 
+```{r}
+data.product.related.duration.max <- max(data$ProductRelated_Duration)
+data.product.related.duration.max
+```
+
+BounceRates 
+```{r}
+data.bounce.rates.max <- max(data$BounceRates)
+data.bounce.rates.max
+```
+
+ExitRates
+```{r}
+data.exit.rates.max <- max(data$ExitRates)
+data.exit.rates.max
+```
+
+PageValues
+```{r}
+data.administrative.max <- max(data$Administrative)
+data.administrative.max
+```
+
+#### Range
+
+Administrative 
+```{r}
+data.administrative.range <- range(data$Administrative)
+data.administrative.range
+```
+
+Administrative_Duration
+```{r}
+data.administrative.duration.range <- range(data$Administrative_Duration)
+data.administrative.duration.range
+```
+
+Informational
+```{r}
+data.informational.range <- range(data$Informational)
+data.informational.range
+```
+
+Informational_Duration  
+```{r}
+data.informational.duration.range <- range(data$Informational_Duration)
+data.informational.duration.range
+```
+
+ProductRelated
+```{r}
+data.product.related.range <- range(data$ProductRelated)
+data.product.related.range
+```
+
+ProductRelated_Duration 
+```{r}
+data.product.related.duration.range <- range(data$ProductRelated_Duration)
+data.product.related.duration.range
+```
+
+BounceRates 
+```{r}
+data.bounce.rates.range <- range(data$BounceRates)
+data.bounce.rates.range
+```
+
+ExitRates
+```{r}
+data.exit.rates.range <- range(data$ExitRates)
+data.exit.rates.range
+```
+
+PageValues
+```{r}
+data.administrative.range <- range(data$Administrative)
+data.administrative.range
+```
+
+#### Quantile
+
+Administrative 
+```{r}
+data.administrative.quantile <- quantile(data$Administrative)
+data.administrative.quantile
+```
+
+Administrative_Duration
+```{r}
+data.administrative.duration.quantile <- quantile(data$Administrative_Duration)
+data.administrative.duration.quantile
+```
+
+Informational
+```{r}
+data.informational.quantile <- quantile(data$Informational)
+data.informational.quantile
+```
+
+Informational_Duration  
+```{r}
+data.informational.duration.quantile <- quantile(data$Informational_Duration)
+data.informational.duration.quantile
+```
+
+ProductRelated
+```{r}
+data.product.related.quantile <- quantile(data$ProductRelated)
+data.product.related.quantile
+```
+
+ProductRelated_Duration 
+```{r}
+data.product.related.duration.quantile <- quantile(data$ProductRelated_Duration)
+data.product.related.duration.quantile
+```
+
+BounceRates 
+```{r}
+data.bounce.rates.quantile <- quantile(data$BounceRates)
+data.bounce.rates.quantile
+```
+
+ExitRates
+```{r}
+data.exit.rates.quantile <- quantile(data$ExitRates)
+data.exit.rates.quantile
+```
+
+PageValues
+```{r}
+data.administrative.quantile <- quantile(data$Administrative)
+data.administrative.quantile
+```
+
+#### Variance
+
+Administrative 
+```{r}
+data.administrative.variance <- var(data$Administrative)
+data.administrative.variance
+```
+
+Administrative_Duration
+```{r}
+data.administrative.duration.variance <- var(data$Administrative_Duration)
+data.administrative.duration.variance
+```
+
+Informational
+```{r}
+data.informational.variance <- var(data$Informational)
+data.informational.variance
+```
+
+Informational_Duration  
+```{r}
+data.informational.duration.variance <- var(data$Informational_Duration)
+data.informational.duration.variance
+```
+
+ProductRelated
+```{r}
+data.product.related.variance <- var(data$ProductRelated)
+data.product.related.variance
+```
+
+ProductRelated_Duration 
+```{r}
+data.product.related.duration.variance <- var(data$ProductRelated_Duration)
+data.product.related.duration.variance
+```
+
+BounceRates 
+```{r}
+data.bounce.rates.variance <- var(data$BounceRates)
+data.bounce.rates.variance
+```
+
+ExitRates
+```{r}
+data.exit.rates.variance <- var(data$ExitRates)
+data.exit.rates.variance
+```
+
+PageValues
+```{r}
+data.administrative.variance <- var(data$Administrative)
+data.administrative.variance
+```
+
+#### Standard Deviation
+
+Administrative 
+```{r}
+data.administrative.standard.deviation <- sd(data$Administrative)
+data.administrative.standard.deviation
+```
+
+Administrative_Duration
+```{r}
+data.administrative.duration.standard.deviation <- sd(data$Administrative_Duration)
+data.administrative.duration.standard.deviation
+```
+
+Informational
+```{r}
+data.informational.standard.deviation <- sd(data$Informational)
+data.informational.standard.deviation
+```
+
+Informational_Duration  
+```{r}
+data.informational.duration.standard.deviation <- sd(data$Informational_Duration)
+data.informational.duration.standard.deviation
+```
+
+ProductRelated
+```{r}
+data.product.related.standard.deviation <- sd(data$ProductRelated)
+data.product.related.standard.deviation
+```
+
+ProductRelated_Duration 
+```{r}
+data.product.related.duration.standard.deviation <- sd(data$ProductRelated_Duration)
+data.product.related.duration.standard.deviation
+```
+
+BounceRates 
+```{r}
+data.bounce.rates.standard.deviation <- sd(data$BounceRates)
+data.bounce.rates.standard.deviation
+```
+
+ExitRates
+```{r}
+data.exit.rates.standard.deviation <- sd(data$ExitRates)
+data.exit.rates.standard.deviation
+```
+
+PageValues
+```{r}
+data.administrative.standard.deviation <- sd(data$Administrative)
+data.administrative.standard.deviation
+```
+
+```{r}
+data_y <- data[data$Revenue==TRUE,]
+data_n <- data[data$Revenue==FALSE,]
+```
+
+```{r}
+barplot(table(data$Revenue), main = "Revenue")
+barplot(table(data_y$Weekend), main = "Weekend")
+barplot(table(data_n$Weekend), main = "Weekend")
+barplot(table(data_y$Region), main = "Region")
+barplot(table(data_n$Region), main = "Region")
+barplot(table(data_y$TrafficType), main = "TrafficType")
+barplot(table(data_y$VisitorType), main = "VisitorType")
+barplot(table(data_n$VisitorType), main = "VisitorType")
+```
+
 
 ## Bivariate Analysis
 ```{r}
-
+cor_data <- data[, c('Administrative', 'Administrative_Duration', 'Informational', 'Informational_Duration', 'ProductRelated', 'ProductRelated_Duration', 'BounceRates', 'ExitRates', 'PageValues', 'SpecialDay')]
+res <- cor(cor_data, cor_data)
+round(res, 2)
 ```
 
 
 
 # Implement the Solution
+```{r}
+head(data)
+```
+
+
+```{r}
+normalize <- function(x){
+  return ((x-min(x)) / (max(x)-min(x)))
+}
+```
+
+
+```{r}
+for(i in 1:ncol(data2)) {       # for-loop over columns
+  data2[, i]<- normalize(data2[, i])
+}
+head(data2)
+```
+
+```{r}
+# install.packages("NbClust")
+# install.packages("openxlsx")
+#install.packages("factoextra")
+library(tidyverse)
+library(dplyr)
+library(openxlsx)
+library(NbClust)
+library(factoextra)
+library(readxl)
+```
+
+
+
+```{r}
+data2_matrix <- data.matrix(data2)
+wssplot <- function(data2_matrix, nc, seed=123){
+  wss <- (nrow(data2_matrix)-1)*sum(apply(data2_matrix, 2, var))
+  for (i in 2:nc){
+    set.seed(seed)
+    wss[i] <- sum(kmeans(data2_matrix, centers = i)$withinss)}
+  plot(1:nc, wss, type = "b", xlab = "Number of Clusters", ylab = "Within groups sum of squares")
+}
+
+wssplot(data2_matrix, nc=20)
+```
+
+```{r}
+fviz_nbclust(data2_matrix, kmeans, method = "wss")+
+  geom_vline(xintercept = 4, linetype = 2)+
+  labs(subtitle = "withinSS")
+fviz_nbclust(data2_matrix, kmeans, method = "silhouette")+
+  labs(subtitle = "silhouette")
+
+
+```
+
 
 ```{r}
 
+result <- kmeans(data2, 4) 
+
+# Previewing the no. of records in each cluster
+result$size 
+
+
 ```
+
+```{r}
+for(i in 1:17) {
+  for (j in 1:17) {
+    if (i == j) {
+      break
+    } else {
+      plot(data2[c(i,j)], col = result$cluster)
+    }
+    
+  }
+}
+
+```
+
+```{r}
+table(result$cluster,data$Revenue)
+```
+
+```{r}
+d <- dist(data2, method = "euclidean")
+d
+res.hc <- hclust(d, method = "ward.D2")
+plot(res.hc, cex = 0.6, hang = -1, labels = data2$Region)
+```
+
 
 # Challenge the Solution
 

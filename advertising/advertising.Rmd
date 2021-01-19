@@ -608,4 +608,96 @@ LGI_1 <- ggplot() + geom_line(aes(y=Age, x=date),
 
 LGI_1
 ```
+# Modeling
+## Decision Tree
 
+```{r}
+df_c <- df
+head(df_c)
+```
+
+
+```{r}
+library(CatEncoders)
+lenc <- LabelEncoder.fit(df_c$Ad.Topic.Line)
+df_c$Ad.Topic.Line <- transform(lenc, df_c$Ad.Topic.Line)
+unique(df_c$Ad.Topic.Line)
+```
+```{r}
+lenc <- LabelEncoder.fit(df_c$City)
+df_c$City <- transform(lenc, df_c$City)
+unique(df_c$City)
+```
+
+```{r}
+lenc <- LabelEncoder.fit(df_c$Gender)
+df_c$Gender <- transform(lenc, df_c$Gender)
+unique(df_c$Gender)
+```
+
+```{r}
+lenc <- LabelEncoder.fit(df_c$Clicked.on.Ad)
+df_c$Clicked.on.Ad <- transform(lenc, df_c$Clicked.on.Ad)
+unique(df_c$Clicked.on.Ad)
+```
+
+```{r}
+lenc <- LabelEncoder.fit(df_c$Country)
+df_c$Country <- transform(lenc, df_c$Country)
+unique(df_c$Country)
+```
+
+```{r}
+lenc <- LabelEncoder.fit(df_c$month)
+df_c$month <- transform(lenc, df_c$month)
+unique(df_c$month)
+```
+
+```{r}
+lenc <- LabelEncoder.fit(df_c$day.of.the.week)
+df_c$day.of.the.week <- transform(lenc, df_c$day.of.the.week)
+unique(df_c$day.of.the.week)
+```
+```{r}
+df_c$Clicked.on.Ad <- as.factor(df_c$Clicked.on.Ad)
+```
+
+
+```{r}
+# install.packages("caTools")
+library(caTools)
+set.seed(123)
+sample = sample.split(df_c$Clicked.on.Ad, SplitRatio = .70)
+train = subset(df_c, sample==TRUE)
+test = subset(df_c, sample==FALSE)
+
+
+library(rpart)
+library(caret)
+
+# Training the model
+tree <- rpart(Clicked.on.Ad ~ ., train)
+predict(tree, type = "class")
+tree.click.predicted <- predict(tree, test, type="class")
+
+confusionMatrix(tree.click.predicted, test$Clicked.on.Ad)
+
+
+```
+
+
+### Analysis
+Note:The analysis was consecrate on people who click on the ads
+1. Most users spent 60 or less time on the site.
+2. Most users have an income below 50000.
+3. Most users use an internet usage of below 200
+4. Most users are aged 40 or older.
+
+
+# Conlusion:
+
+1. People how spend 60 or less minutes on the site.
+2. People how are 40 or older.
+3. People living in the city of Lisamouth.
+4. People living in the country of Czech Republic.
+5. Target Females. 
