@@ -664,12 +664,44 @@ barplot(table(data_n$VisitorType), main = "VisitorType")
 
 
 ## Bivariate Analysis
+
 ```{r}
-cor_data <- data[, c('Administrative', 'Administrative_Duration', 'Informational', 'Informational_Duration', 'ProductRelated', 'ProductRelated_Duration', 'BounceRates', 'ExitRates', 'PageValues', 'SpecialDay')]
+#install.packages("magrittr") # package installations are only needed the first time you use it
+#install.packages("dplyr")    # alternative installation of the %>%
+library(magrittr) # needs to be run every time you start R and want to use %>%
+library(dplyr)    # alternatively, this also loads %>%
+```
+
+
+```{r}
+
+names(data)[names(data) == "Administrative"] <- "adm"
+names(data)[names(data) == "Administrative_Duration"] <- "adm_du"
+names(data)[names(data) == "Informational"] <- "info"
+names(data)[names(data) == "Informational_Duration"] <- "info_du"
+names(data)[names(data) == "ProductRelated"] <- "pr"
+names(data)[names(data) == "ProductRelated_Duration"] <- "pr_du"
+names(data)[names(data) == "BounceRates"] <- "br"
+names(data)[names(data) == "ExitRates"] <- "er"
+names(data)[names(data) == "PageValues"] <- "pv"
+names(data)[names(data) == "SpecialDay"] <- "sd"
+```
+
+
+
+```{r}
+#cor_data <- data[, c('Administrative', 'Administrative_Duration', 'Informational', 'Informational_Duration', 'ProductRelated', 'ProductRelated_Duration', 'BounceRates', 'ExitRates', 'PageValues', 'SpecialDay')]
+cor_data <- data %>% select(1:10)
 res <- cor(cor_data, cor_data)
 round(res, 2)
 ```
 
+
+```{r}
+#install.packages("ggcorrplot")
+library(ggcorrplot)
+ggcorrplot::ggcorrplot(cor(cor_data))
+```
 
 
 # Implement the Solution
@@ -689,6 +721,7 @@ normalize <- function(x){
 for(i in 1:ncol(data2)) {       # for-loop over columns
   data2[, i]<- normalize(data2[, i])
 }
+
 head(data2)
 ```
 
@@ -755,12 +788,7 @@ for(i in 1:17) {
 ```
 
 ```{r}
-table(result$cluster,data$Revenue)
-```
-
-```{r}
 d <- dist(data2, method = "euclidean")
-d
 res.hc <- hclust(d, method = "ward.D2")
 plot(res.hc, cex = 0.6, hang = -1, labels = data2$Region)
 ```
@@ -768,7 +796,9 @@ plot(res.hc, cex = 0.6, hang = -1, labels = data2$Region)
 
 # Challenge the Solution
 
+Giving an in depth analysis, i found Hierarchical clustering give a better representation of a customer's Character.
 
 # Follow up Questions
 
+The data was large but it could better if the description of the dataset was more in depth.
 
